@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>春风十里 不负春光 ——三亚寰小一年级春游活动纪实</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        /* 封面区域 */
+        .cover {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.3)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.2)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.3)"/><circle cx="90" cy="80" r="2" fill="rgba(255,255,255,0.2)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+        
+        .cover h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .cover .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            opacity: 0.95;
+            z-index: 1;
+        }
+        
+        .cover .date {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.9em;
+            opacity: 0.8;
+            z-index: 1;
+        }
+        
+        /* 内容区域 */
+        .content {
+            padding: 40px;
+        }
+        
+        /* 开篇 */
+        .intro {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            line-height: 1.8;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+        }
+        
+        /* 小标题样式 */
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin: 50px 0 25px 0;
+            padding: 15px 20px;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 50px;
+            color: white;
+            font-size: 1.3em;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+        }
+        
+        .section-title::before {
+            content: '🌸';
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .section-title:nth-child(4n+1)::before { content: '🌱'; }
+        .section-title:nth-child(4n+2)::before { content: '🌿'; }
+        .section-title:nth-child(4n+3)::before { content: '🌻'; }
+        .section-title:nth-child(4n+4)::before { content: '🌺'; }
+        
+        /* 段落文字 */
+        .text {
+            font-size: 1.05em;
+            line-height: 2;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: justify;
+            padding: 0 10px;
+        }
+        
+        /* 图片画廊 */
+        .gallery {
+            display: grid;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .gallery-1 {
+            grid-template-columns: 1fr;
+        }
+        
+        .gallery-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .gallery-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* 图片说明 */
+        .img-caption {
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        /* 活动卡片 */
+        .activity-card {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            color: white;
+            box-shadow: 0 10px 30px rgba(250, 112, 154, 0.3);
+        }
+        
+        .activity-card h4 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .activity-card h4::before {
+            content: '🎮';
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+        
+        /* 结尾 */
+        .conclusion {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 35px;
+            border-radius: 20px;
+            margin: 40px 0;
+            text-align: center;
+            font-size: 1.1em;
+            line-height: 2;
+            color: #444;
+            box-shadow: 0 10px 30px rgba(168, 237, 234, 0.4);
+        }
+        
+        .conclusion::before {
+            content: '✨';
+            font-size: 2em;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        /* 署名 */
+        .signature {
+            text-align: right;
+            margin-top: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 4px solid #4facfe;
+        }
+        
+        .signature p {
+            margin: 8px 0;
+            color: #555;
+            font-size: 0.95em;
+        }
+        
+        .signature .label {
+            color: #888;
+            font-size: 0.85em;
+        }
+        
+        /* 装饰元素 */
+        .decoration {
+            text-align: center;
+            font-size: 2em;
+            margin: 30px 0;
+            opacity: 0.6;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .cover {
+                height: 300px;
+            }
+            
+            .cover h1 {
+                font-size: 1.8em;
+            }
+            
+            .cover .subtitle {
+                font-size: 1em;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .gallery-2, .gallery-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 封面 -->
+        <div class="cover">
+            <h1>春风十里 不负春光</h1>
+            <p class="subtitle">三亚寰小一年级春游活动纪实</p>
+            <p class="date">三亚寰岛实验小学 · 2026年3月</p>
+        </div>
+        
+        <!-- 内容 -->
+        <div class="content">
+            <!-- 开篇 -->
+            <div class="intro">
+                春风送暖，万物复苏。在这个充满生机与希望的美好时节，三亚寰岛实验小学一年级全体师生走出校园，开启了快乐又难忘的春游之旅。
+            </div>
+            
+            <div class="decoration">🌸 🌿 🌸</div>
+            
+            <!-- 第一部分 -->
+            <div class="section-title">走出教室，触摸春天</div>
+            <p class="text">
+                清晨，阳光洒满校园，孩子们背着装满零食与期待的小书包，脸上洋溢着灿烂的笑容，排着整齐的队伍整装待发。
+            </p>
+            <div class="gallery gallery-1">
+                <div class="gallery-item">
+                    <img src="01_各班整装待发.jpg" alt="各班整装待发">
+                </div>
+            </div>
+            <p class="img-caption">各班整装待发，满怀期待</p>
+            
+            <!-- 第二部分 -->
+            <div class="section-title">行走春天，快乐成长</div>
+            <p class="text">
+                抵达目的地后，老师带领着孩子们漫步在公园中，快乐游戏，尽情撒欢，观察花草嫩叶、感受微风暖阳，真切触摸春天独有的生机与活力。
+            </p>
+            <div class="gallery gallery-3">
+                <div class="gallery-item">
+                    <img src="02_游乐设施玩耍.jpg" alt="游乐设施玩耍">
+                </div>
+                <div class="gallery-item">
+                    <img src="03_小女孩钻洞.jpg" alt="小女孩钻洞">
+                </div>
+                <div class="gallery-item">
+                    <img src="04_蓝色小车.jpg" alt="蓝色小车">
+                </div>
+            </div>
+            
+            <!-- 第三部分 -->
+            <div class="section-title">春日有限，快乐无限</div>
+            <p class="text">
+                草地上，大家围坐在一起分享美食，你一言我一语，分享着零食，也分享着快乐。孩子们奔跑、嬉戏、欢笑，用童真的视角捕捉春天的美好，用清脆的笑声点亮整个春日。
+            </p>
+            <div class="gallery gallery-3">
+                <div class="gallery-item">
+                    <img src="05_分享零食.jpg" alt="分享零食">
+                </div>
+                <div class="gallery-item">
+                    <img src="06_举杯庆祝.jpg" alt="举杯庆祝">
+                </div>
+                <div class="gallery-item">
+                    <img src="08_野餐合影.jpg" alt="野餐合影">
+                </div>
+            </div>
+            
+            <!-- 第四部分 -->
+            <div class="section-title">追风逐野，快乐加倍</div>
+            <p class="text">
+                小朋友们齐聚春日美景中，开启了独具特色的趣味活动，每一个班级都绽放着不一样的欢乐光彩。
+            </p>
+            
+            <div class="activity-card">
+                <h4>老鹰捉小鸡</h4>
+                <p>有的班级化身欢乐小猎手，玩起了经典的老鹰捉小鸡！</p>
+                <div class="gallery gallery-1" style="margin-top: 15px;">
+                    <div class="gallery-item">
+                        <img src="09_老鹰捉小鸡.jpg" alt="老鹰捉小鸡">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="activity-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <h4>丢手绢</h4>
+                <p>有的班级围坐成温暖的圆圈，开启了趣味满满的丢手绢游戏！</p>
+                <div class="gallery gallery-1" style="margin-top: 15px;">
+                    <div class="gallery-item">
+                        <img src="07_丢手绢游戏.jpg" alt="丢手绢游戏">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="activity-card" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+                <h4>春日小舞者</h4>
+                <p>有的班级化身春日小舞者，伴着欢快的旋律尽情跳舞！</p>
+                <div class="gallery gallery-2" style="margin-top: 15px;">
+                    <div class="gallery-item">
+                        <img src="10_男孩跳舞.jpg" alt="男孩跳舞">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="11_女孩合影.jpg" alt="女孩合影">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="decoration">🌺 🌻 🌺</div>
+            
+            <!-- 结尾 -->
+            <div class="conclusion">
+                此次春游，让孩子们走出课堂、亲近自然、释放天性，在嬉笑打闹中收获陪伴与友谊，在春日风光里感知美好、快乐生长。愿每一位小朋友都能眼里有光、心中有爱，一路向阳、自在成长。
+            </div>
+            
+            <!-- 署名 -->
+            <div class="signature">
+                <p><span class="label">文稿</span> 袁皓雯</p>
+                <p><span class="label">制作</span> 杨　洋</p>
+                <p><span class="label">初审</span> 南　洋</p>
+                <p><span class="label">复审</span> 李佳翼</p>
+                <p><span class="label">终审</span> 姚小琼</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
